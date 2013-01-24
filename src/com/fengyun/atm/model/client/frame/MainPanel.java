@@ -5,6 +5,10 @@
  */
 
 package com.fengyun.atm.model.client.frame;
+import java.awt.Dimension;
+import java.awt.Rectangle;
+import java.awt.BorderLayout;
+import java.awt.ComponentOrientation;
 
 /**
  *
@@ -13,10 +17,21 @@ package com.fengyun.atm.model.client.frame;
 public class MainPanel extends javax.swing.JFrame
 {
 
+	/**
+	 * 原来写这篇代码的时候，只有我和上帝知道它是干嘛的
+	 * 现在只有上帝知道了
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/** Creates new form MainPanel */
 	public MainPanel()
 	{
+		setMinimumSize(new Dimension(300, 400));
+		getContentPane().setMinimumSize(new Dimension(300, 400));
+		setSize(new Dimension(251, 449));
+		setBounds(new Rectangle(0, 0, 300, 400));
 		initComponents();
+		setBounds(100, 100, 300, 400);
 	}
 
 	/** This method is called from within the constructor to
@@ -37,16 +52,15 @@ public class MainPanel extends javax.swing.JFrame
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setTitle("BAM Client");
 		setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-		setMinimumSize(new java.awt.Dimension(300, 400));
+		
 
 		jLabel1.setFont(new java.awt.Font("微软雅黑", 1, 24));
 		jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		jLabel1.setText("ICBC ATM Terminal");
-		getContentPane().add(jLabel1, java.awt.BorderLayout.CENTER);
+		getContentPane().add(jLabel1, BorderLayout.CENTER);
 
-		jPanel1.setMinimumSize(new java.awt.Dimension(312, 350));
 		jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
-				50, 50));
+				20, 50));
 
 		jButton1.setText("\u6ce8\u518c");
 		jPanel1.add(jButton1);
