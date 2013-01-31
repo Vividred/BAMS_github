@@ -5,10 +5,16 @@
  */
 
 package com.fengyun.atm.model.client.frame;
+
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.BorderLayout;
 import java.awt.ComponentOrientation;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 /**
  *
@@ -16,16 +22,17 @@ import java.awt.ComponentOrientation;
  */
 public class MainPanel extends javax.swing.JFrame
 {
-
 	/**
 	 * 原来写这篇代码的时候，只有我和上帝知道它是干嘛的
 	 * 现在只有上帝知道了
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	/** Creates new form MainPanel */
 	public MainPanel()
 	{
+
 		setMinimumSize(new Dimension(300, 400));
 		getContentPane().setMinimumSize(new Dimension(300, 400));
 		setSize(new Dimension(251, 449));
@@ -46,33 +53,61 @@ public class MainPanel extends javax.swing.JFrame
 
 		jLabel1 = new javax.swing.JLabel();
 		jPanel1 = new javax.swing.JPanel();
-		jButton1 = new javax.swing.JButton();
-		jButton2 = new javax.swing.JButton();
+		btnRegister = new javax.swing.JButton();
+		btnLogin = new javax.swing.JButton();
 
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setTitle("BAM Client");
 		setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-		
+		setDefaultCloseOperation(3);
+		setMinimumSize(new java.awt.Dimension(300, 400));
 
+		jLabel1.setHorizontalAlignment(0);
 		jLabel1.setFont(new java.awt.Font("微软雅黑", 1, 24));
-		jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		jLabel1.setText("ICBC ATM Terminal");
-		getContentPane().add(jLabel1, BorderLayout.CENTER);
+		getContentPane().add(jLabel1, java.awt.BorderLayout.CENTER);
 
-		jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
-				20, 50));
+		jPanel1.setMinimumSize(new java.awt.Dimension(312, 350));
+		jPanel1.setLayout(new java.awt.FlowLayout(1, 50, 50));
 
-		jButton1.setText("\u6ce8\u518c");
-		jPanel1.add(jButton1);
+		btnRegister.setText("\u6ce8\u518c");
+		btnRegister.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
+			{
+				btnRegisterActionPerformed(evt);
+			}
+		});
+		jPanel1.add(btnRegister);
 
-		jButton2.setText("\u767b\u9646");
-		jPanel1.add(jButton2);
+		btnLogin.setText("\u767b\u9646");
+		btnLogin.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
+			{
+				btnLoginActionPerformed(evt);
+			}
+		});
+		jPanel1.add(btnLogin);
 
 		getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
 		pack();
 	}// </editor-fold>
 	//GEN-END:initComponents
+
+	private void btnLoginActionPerformed(java.awt.event.ActionEvent evt)
+	{
+		// TODO add your handling code here:
+		LoginPanel.main(null);
+		dispose();
+	}
+
+	private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt)
+	{
+		// TODO add your handling code here:
+		RegisterPanel.main(null);
+		dispose();
+	}
 
 	/**
 	 * @param args the command line arguments
@@ -84,14 +119,15 @@ public class MainPanel extends javax.swing.JFrame
 			public void run()
 			{
 				new MainPanel().setVisible(true);
+
 			}
 		});
 	}
 
 	//GEN-BEGIN:variables
 	// Variables declaration - do not modify
-	private javax.swing.JButton jButton1;
-	private javax.swing.JButton jButton2;
+	private javax.swing.JButton btnLogin;
+	private javax.swing.JButton btnRegister;
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JPanel jPanel1;
 	// End of variables declaration//GEN-END:variables

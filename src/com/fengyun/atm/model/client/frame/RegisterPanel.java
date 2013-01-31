@@ -12,17 +12,23 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
+import java.awt.Component;
+import javax.swing.JPasswordField;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RegisterPanel extends JFrame
 {
 
 	private JPanel contentPane;
-	private JTextField textField_1;
-	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	private JPasswordField passwordField;
+	private JPasswordField pwdField_confirm;
 
 	/**
 	 * Launch the application.
@@ -59,53 +65,60 @@ public class RegisterPanel extends JFrame
 		setContentPane(contentPane);
 		
 		JPanel panel_c = new JPanel();
+		panel_c.setBorder(new EmptyBorder(0, 0, 0, 20));
 		contentPane.add(panel_c, BorderLayout.CENTER);
-		panel_c.setLayout(new GridLayout(7, 2, 30, 20));
+		panel_c.setLayout(new GridLayout(7, 2, 20, 20));
 		
 		JLabel lblType = new JLabel("\u8D26\u6237\u7C7B\u578B\uFF1A");
 		lblType.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_c.add(lblType);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"\u666E\u901A\u8D26\u6237", "\u4FE1\u7528\u8D26\u6237"}));
 		panel_c.add(comboBox);
 		
-		JLabel label_5 = new JLabel("New label");
-		panel_c.add(label_5);
+		JLabel lblAccount = new JLabel("\u7528 \u6237 \u540D\uFF1A");
+		lblAccount.setAlignmentY(Component.TOP_ALIGNMENT);
+		lblAccount.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_c.add(lblAccount);
 		
 		textField_6 = new JTextField();
 		textField_6.setColumns(10);
 		panel_c.add(textField_6);
 		
-		JLabel label = new JLabel("New label");
-		panel_c.add(label);
+		JLabel lblPwd = new JLabel("\u5BC6    \u7801\uFF1A");
+		lblPwd.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_c.add(lblPwd);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		panel_c.add(textField_1);
+		passwordField = new JPasswordField();
+		panel_c.add(passwordField);
 		
-		JLabel label_1 = new JLabel("New label");
-		panel_c.add(label_1);
+		JLabel lblPwdconf = new JLabel("\u786E\u8BA4\u5BC6\u7801\uFF1A");
+		lblPwdconf.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_c.add(lblPwdconf);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		panel_c.add(textField_2);
+		pwdField_confirm = new JPasswordField();
+		panel_c.add(pwdField_confirm);
 		
-		JLabel label_2 = new JLabel("New label");
-		panel_c.add(label_2);
+		JLabel lblPerId = new JLabel("\u8EAB\u4EFD\u8BC1\u53F7\uFF1A");
+		lblPerId.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_c.add(lblPerId);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
 		panel_c.add(textField_3);
 		
-		JLabel label_3 = new JLabel("New label");
-		panel_c.add(label_3);
+		JLabel lblAddress = new JLabel("\u8BE6\u7EC6\u5730\u5740\uFF1A");
+		lblAddress.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_c.add(lblAddress);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
 		panel_c.add(textField_4);
 		
-		JLabel label_4 = new JLabel("New label");
-		panel_c.add(label_4);
+		JLabel lblMail = new JLabel("E-Mail\uFF1A");
+		lblMail.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_c.add(lblMail);
 		
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
@@ -113,7 +126,18 @@ public class RegisterPanel extends JFrame
 		
 		JPanel panel_b = new JPanel();
 		contentPane.add(panel_b, BorderLayout.SOUTH);
-		panel_b.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 30));
+		panel_b.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 20));
+		
+		JButton btnSubmit = new JButton("\u63D0\u4EA4");
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		panel_b.add(btnSubmit);
+		
+		JButton btnReturn = new JButton("\u8FD4\u56DE");
+		panel_b.add(btnReturn);
 	}
 
 }
